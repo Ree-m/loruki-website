@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,200;0,300;0,400;1,300;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+Pro&display=swap');
+:root{
+    --primary-color-blue:#047aed;
+    --secondary-color-blue:#1c3fa8;
+    --dark-color:#002240;
+    --light-color:#f4f4f4;
+}
+*{
+    box-sizing: border-box;
+    padding:0 ;
+    margin: 0;
+    
+}
+body{
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height:1.6;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+h1,h2{
+    font-weight: 300;
+    margin: 10px 0;
+    line-height:1.2;
+}
+
+p{
+    margin: 10px 0;
+}
+
+img{
+    width: 100%;  /* This makes sure the image is within its container and doesnt bust out*/
+}
+
+
+
+
+/* ===============NAVBAR============ */
+
+.navbar{
+    background-color: var(--primary-color-blue);
+    color: #fff;
+    height: 70px;
+}
+
+
+.navbar ul{
+    display: flex;
+    
+}
+.navbar a{
+    color: #fff;
+    padding:10px ;
+    margin: 0 5px;
+
+}
+.navbar a:hover{
+    border-bottom: 2px #fff solid;
+}
+.navbar .flex{
+    justify-content: space-between;
+}
+
+/* ==========Showcase================ */
+.showcase{
+    height: 400px;
+    background-color:var(--primary-color-blue);
+    color: #fff;
+    position: relative;
+
+    
+    
+}
+
+.showcase h1{
+    font-size: 40px;
+}
+.showcase p{
+    margin: 20px 0;
+}
+ .showcase .grid{ 
+     grid-template-columns: 55% 42%; 
+    gap:30px;
+    overflow: visible;
+
+
+} 
+
+.showcase-form{
+    position: relative;  /* I want to use top,bottom. In order to use them i need to set the postion variable to either relative or absolute*/
+    top: 60px;  /* this moves the form 60px away from top,and makes an overflow (remove the overflow in grid)*/
+    height: 350px;
+    width: 400px;
+    padding: 40px;
+    justify-self: flex-end;
+    z-index: 100;
+
+}
+.showcase .form-control{
+    margin: 30px 0;
+}
+.showcase-form input[type='text'],
+.showcase-form input[type='email']{
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+}
+.showcase-form input:focus{
+    outline: none;  /*when the input is clicked, no border forms*/
+}
+
+.showcase::before,.showcase::after{
+    content:'';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    transform:skewY(-3deg); /* this is what makes it tilt*/
+    -webkit-transform:skewY(-3deg);
+    -moz-transform:skewY(-3deg);
+    -ms-transform:skewY(-3deg); /* for all browsers*/
+}
+
+/* =============Stats========= */
+.stats{
+    padding-top: 100px;
+    
+}
+.stats-heading{
+    max-width:500px;
+    margin: auto; /* centres it */
+    
+}
+.stats .grid h3{
+    font-size: 35px;
+}
+
+/* ========Cli========= */
+.cli .grid{
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+.cli .grid >*:first-child{
+    grid-column: 1 /span 2;
+    grid-row: 1 /span 2;
+}
+
+/* ===========Cloud========= */
+.cloud .grid{
+    grid-template-columns: 4fr 3fr;
+}
+/* =========Languages===== */
+
+.languages .card{
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2 ease-in; /* makes the card moving up smoother*/
+
+}
+.languages .flex{
+    flex-wrap: wrap;
+}
+.languages .card:hover{
+    transform: translateY(-15px); /* move up 15px, if it was positive 15px, it would move down*/
+}
+
+/* ======footer======= */
+.footer .social a{
+    margin: 0 10px;
+}
+
+/* Tablets and under */
+@media(max-width:1000px){
+    .showcase-text{
+        width: 75%;
+        padding:40px
+
+    }
+}
+ @media(max-width: 768px) {
+     .grid,
+    .showcase .grid,
+     .cli .grid,
+     .cloud .grid{
+         grid-template-columns: 1fr;
+         grid-template-rows: 1fr;
+     }
+     .showcase{
+         height: auto;  /* this is magical!!!!! makes the content take the device in mind so text,forms,images dont go to the next section*/
+     }
+     .showcase-text{
+         padding-top: 40px;
+         text-align: center;
+     }
+     .cli .grid > *:first-child{
+         grid-column: 1;
+         grid-row: 1;
+     }
+     
+
+    
+} 
+
+ @media (max-width:500px) {
+    .navbar{
+        
+        height: 110px;
+    }
+    .navbar .flex{
+        flex-direction: columns ;
+    }
+    .nav ul{
+        padding: 10px;
+        background-color: rgba(0,0,0,0.1);
+    }
+ } 
+ 
